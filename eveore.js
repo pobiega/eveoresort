@@ -1,9 +1,7 @@
 const Manipula = require('manipula');
 const domready = require('domready');
 
-let sortedList = {};
 const itemRegex = /(\w+\s?\w+)(?:\s{2,}|\t)(\d+)/;
-
 
 function CopyToClipboard() {
     const el = document.getElementById("orelist");
@@ -11,11 +9,11 @@ function CopyToClipboard() {
     document.execCommand('copy');
 }
 
-function AddOrCreate(ore, count) {
-    if (ore in sortedList) {
-        sortedList[ore] += count;
+function AddOrCreate(list, ore, count) {
+    if (ore in list) {
+        list[ore] += count;
     } else {
-        sortedList[ore] = count;
+        list[ore] = count;
     }
 }
 
@@ -32,6 +30,7 @@ function CombineAndSort() {
         return;
     }
 
+    let sortedList = {};
     let unsorted = orelist.value.split("\n");
 
     if (!unsorted) {
@@ -51,7 +50,7 @@ function CombineAndSort() {
         const ore = split[1];
         const count = parseInt(split[2]);
 
-        AddOrCreate(ore, count);
+        AddOrCreate(sortedList, ore, count);
     });
 
     const source = Manipula.from(Object.keys(sortedList));
