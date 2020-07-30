@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EVE Ore list sorter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="bundle.js" defer></script>
+</head>
+<body>
+    <section class="section">
+        <div class="container is-fluid">
+            <h1 class="title">
+                EVE Ore list sorter
+            </h1>
+            <p class="subtitle">
+                Paste your unsorted, raw list here.
+            </p>
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <div class="field">
+                        <div class="control">
+                            <textarea id="orelist" class="textarea is-primary is-medium is-family-monospace"
+                                placeholder="Kernite    175
+Veldspar    109722
+Massive Scordite    1430" rows="7"></textarea>
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <div class="control">
+                            <button class="button is-primary is-centered" id="CombineAndSort">Combine and
+                                sort!</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-info is-centered" id="CopyToClipboard">Copy to clipboard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
